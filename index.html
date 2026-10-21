@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RippleMap AI | Civic Intelligence</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">🌍 RippleMap AI</a>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="report.html">Report Issue</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">CIVIC PROBLEM INTELLIGENCE</p>
+      <h1>Fix the problem.<br>Prevent its return.</h1>
+      <p>
+        Track recurring public issues, discover hotspots,
+        and understand which repairs need attention.
+      </p>
+      <a class="primary-button" href="report.html">
+        + Report a Public Issue
+      </a>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Total Issues</span>
+        <strong id="totalIssues">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Recurring Issues</span>
+        <strong id="recurringIssues">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Under Investigation</span>
+        <strong id="investigatingIssues">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Resolved</span>
+        <strong id="resolvedIssues">0</strong>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel">
+        
+<h2>Issue Hotspots</h2>
+<p>
+  Explore reported civic issues, identify recurring problems,
+  and locate areas that may need civic attention.
+</p>
+
+<div class="map-guide">
+  <h3>How to use the map</h3>
+  <ul>
+    <li>Select a marker to explore a reported civic issue.</li>
+    <li>Look for clusters of reports to identify problem areas.</li>
+    <li>Review the hotspot summary below to find areas needing attention.</li>
+  </ul>
+  <p class="map-guide-note">
+    Hotspots indicate concentrations of reports, not confirmed emergencies.
+  </p>
+</div>
+
+<div id="map" aria-label="Interactive map of reported civic issues"></div>
+
+
+            <p id="selectedLocation" class="location-info">
+            Click on the map to select an issue location.
+            </p>
+            
+<div class="hotspot-summary">
+  <h3>Hotspot Summary</h3>
+
+  <div class="hotspot-total-card">
+    <span>Total Detected Hotspots</span>
+    <strong id="totalHotspots">0</strong>
+  </div>
+
+  <div id="hotspotSummaryList">
+    <p class="empty-state">Checking for hotspots...</p>
+  </div>
+</div>
+
+      </article>
+
+      
+<article class="panel">
+  <h2>Recurring Issues</h2>
+  <p>Locations that may need a closer inspection.</p>
+
+  <div id="recurringList">
+    <p class="empty-state">
+      Checking for recurring issues...
+    </p>
+  </div>
+</article>
+
+    </section>
+
+    <footer>
+      RippleMap AI · A civic intelligence prototype
+    </footer>
+    
+<section class="saved-reports-section">
+  <h2>Recent Reports</h2>
+  <p>View and filter civic issues submitted through RippleMap AI.</p>
+
+  <!-- Search and filter controls -->
+  <div class="report-filters">
+    <input
+      type="search"
+      id="reportSearch"
+      placeholder="Search category or description..."
+      aria-label="Search reports"
+    >
+
+    <select id="reportStatusFilter" aria-label="Filter by status">
+      <option value="all">All statuses</option>
+      <option value="Reported">Reported</option>
+      <option value="Under Investigation">Under Investigation</option>
+      <option value="Resolved">Resolved</option>
+    </select>
+
+    <select id="reportCategoryFilter" aria-label="Filter by category">
+      <option value="all">All categories</option>
+    </select>
+
+    <button type="button" id="clearReportFilters">
+      Clear Filters
+    </button>
+    
+<select id="reportSortOrder" aria-label="Sort reports">
+  <option value="newest">Newest first</option>
+  <option value="oldest">Oldest first</option>
+  <option value="recurring">Recurring issues first</option>
+</select>
+
+  </div>
+
+  <!-- Number of reports matching the filters -->
+  <p id="reportResultCount" aria-live="polite"></p>
+  
+<div class="dashboard-refresh-controls">
+  <button type="button" id="refreshDashboard">
+    ↻ Refresh Dashboard
+  </button>
+  <span id="dashboardLastUpdated" aria-live="polite">
+    Dashboard not refreshed yet
+  </span>
+</div>
+
+
+  <!-- Existing report cards stay here -->
+  <div id="savedReports" class="saved-reports-grid">
+    <p>Loading reports...</p>
+  </div>
+</section>
+
+  </main>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/map.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/recurrence.js"></script>
+<script src="js/hotspots.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/app.js"></script>
+<script src="js/hotspot-panel.js"></script>
+
+</body>
+</html>

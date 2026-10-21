@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Panel | RippleMap AI</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">🌍 RippleMap AI</a>
+
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="report.html">Report Issue</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main class="container admin-page">
+    <section class="welcome admin-welcome">
+      <p class="eyebrow">CIVIC ISSUE MANAGEMENT</p>
+      <h1>Admin Dashboard</h1>
+      <p>
+        Review citizen reports, investigate issues and track resolution.
+      </p>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Total Reports</span>
+        <strong id="adminTotalReports">0</strong>
+      </article>
+
+      <article class="stat-card">
+        <span>Reported</span>
+        <strong id="adminReportedCount">0</strong>
+      </article>
+
+      <article class="stat-card">
+        <span>Under Investigation</span>
+        <strong id="adminInvestigatingCount">0</strong>
+      </article>
+
+      <article class="stat-card">
+        <span>Resolved</span>
+        <strong id="adminResolvedCount">0</strong>
+      </article>
+    </section>
+
+    <section class="panel admin-reports-panel">
+      <h2>Manage Reports</h2>
+      <p>Review each report and update its current status.</p>
+
+      <div id="adminMessage" role="status" aria-live="polite"></div>
+
+      <div id="adminReports">
+        <p class="empty-state">Loading reports...</p>
+      </div>
+    </section>
+
+    <footer>
+      RippleMap AI · Civic issue management prototype
+    </footer>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
